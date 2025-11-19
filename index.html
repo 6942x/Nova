@@ -496,6 +496,18 @@
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
         }
 
+        .pricing-section {
+            margin-bottom: 4rem;
+        }
+
+        .pricing-section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #FF0000;
+            font-weight: 700;
+        }
+
         .pricing-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1070,46 +1082,85 @@
 
     <section id="pricing">
         <h2>Pricing <span>Plans</span></h2>
-        <div class="pricing-container">
-            <div class="pricing-card" data-tilt>
-                <div class="pricing-header">
-                    <h3 class="pricing-title">Basic Development</h3>
-                    <div class="pricing-price">$10<span class="pricing-currency"> / R$ 4k</span></div>
+        
+        <div class="pricing-section">
+            <h3 class="pricing-section-title">Fixed Price Services</h3>
+            <div class="pricing-container">
+                <div class="pricing-card" data-tilt>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Basic Development</h3>
+                        <div class="pricing-price">$37.5<span class="pricing-currency"> / R$ 9.9k</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">Clean & Structured Code</li>
+                        <li class="included">Direct Communication</li>
+                        <li class="included">Minor Revisions</li>
+                        <li class="included">Source Code</li>
+                        <li class="excluded">Deployment</li>
+                    </ul>
                 </div>
-                <ul class="pricing-features">
-                    <li class="included">Clean Code</li>
-                    <li class="included">Constant Communication</li>
-                    <li class="included">Revisions</li>
-                    <li class="included">Source Code</li>
-                    <li class="excluded">Deployment</li>
-                </ul>
-            </div>
 
-            <div class="pricing-card" data-tilt>
-                <div class="pricing-header">
-                    <h3 class="pricing-title">Full Stack</h3>
-                    <div class="pricing-price">$15<span class="pricing-currency"> / R$ 6.5k</span></div>
+                <div class="pricing-card" data-tilt>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Full Stack</h3>
+                        <div class="pricing-price">$75<span class="pricing-currency"> / R$ 19.5k</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">All Source Files</li>
+                        <li class="included">High-Quality, Optimized Code</li>
+                        <li class="included">Active Communication</li>
+                        <li class="included">Multiple Revisions</li>
+                        <li class="included">Deployment</li>
+                        <li class="included">Faster Delivery</li>
+                    </ul>
                 </div>
-                <ul class="pricing-features">
-                    <li class="included">All Source Files</li>
-                    <li class="included">High Quality Code</li>
-                    <li class="included">Constant Communication</li>
-                    <li class="included">Revisions</li>
-                    <li class="included">Deployment</li>
-                    <li class="included">Fast Delivery</li>
-                </ul>
-            </div>
 
-            <div class="pricing-card" data-tilt>
-                <div class="pricing-header">
-                    <h3 class="pricing-title">Deployment Only</h3>
-                    <div class="pricing-price">$5<span class="pricing-currency"> / R$ 2.1k</span></div>
+                <div class="pricing-card" data-tilt>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Deployment & Setup Only</h3>
+                        <div class="pricing-price">$17.5<span class="pricing-currency"> / R$ 4.6k</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">Professional Deployment</li>
+                        <li class="included">Configuration Files</li>
+                        <li class="excluded">Source Code</li>
+                    </ul>
                 </div>
-                <ul class="pricing-features">
-                    <li class="included">Professional Deployment</li>
-                    <li class="included">Configuration Files</li>
-                    <li class="excluded">Source Code</li>
-                </ul>
+            </div>
+        </div>
+        
+        <div class="pricing-section">
+            <h3 class="pricing-section-title">Percentage (USD Only)</h3>
+            <div class="pricing-container">
+                <div class="pricing-card" data-tilt>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Revenue Share</h3>
+                        <div class="pricing-price">5% - 10%<span class="pricing-currency"> / month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">Full Project Development</li>
+                        <li class="included">Continuous Maintenance</li>
+                        <li class="included">Feature Updates</li>
+                        <li class="included">Priority Support</li>
+                        <li class="included">Revenue Analytics</li>
+                        <li class="included">Performance Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card" data-tilt>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Profit Partnership</h3>
+                        <div class="pricing-price">12.5% - 20%<span class="pricing-currency"> / month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">Complete Development Cycle</li>
+                        <li class="included">Strategic Planning</li>
+                        <li class="included">Market Analysis</li>
+                        <li class="included">Scalability Solutions</li>
+                        <li class="included">Dedicated Resources</li>
+                        <li class="included">Quarterly Reviews</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
