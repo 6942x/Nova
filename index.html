@@ -6,7 +6,6 @@
     <meta name="description" content="Nova - Professional Programmer Portfolio">
     <title>Nova - Programmer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -14,9 +13,17 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #FF0000;
+            --secondary-color: #CC0000;
+            --accent-color: #FF3333;
+            --dark-bg: #0f051d;
+            --card-bg: rgba(26, 10, 46, 0.6);
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f051d 0%, #1a0a2e 50%, #160b2e 100%);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a0a2e 50%, #160b2e 100%);
             color: #fff;
             overflow-x: hidden;
             line-height: 1.6;
@@ -30,8 +37,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(216, 0, 255, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(160, 0, 204, 0.08) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(204, 0, 0, 0.08) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
             animation: gradientShift 15s ease-in-out infinite;
@@ -47,10 +54,10 @@
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(90deg, #D800FF, #A000CC, #D800FF);
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
             width: 0;
             z-index: 2000;
-            box-shadow: 0 0 20px rgba(216, 0, 255, 0.8);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
         }
 
         header {
@@ -61,7 +68,7 @@
             background: rgba(26, 10, 46, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(216, 0, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.2);
             animation: slideDown 0.6s ease-out;
         }
 
@@ -81,7 +88,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #D800FF, #A000CC);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -89,8 +96,8 @@
         }
 
         @keyframes glow {
-            0%, 100% { filter: drop-shadow(0 0 5px rgba(216, 0, 255, 0.5)); }
-            50% { filter: drop-shadow(0 0 15px rgba(216, 0, 255, 0.8)); }
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8)); }
         }
 
         nav ul {
@@ -115,12 +122,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #D800FF;
+            background: var(--primary-color);
             transition: width 0.3s;
         }
 
         nav a:hover::after, nav a.active::after { width: 100%; }
-        nav a:hover, nav a.active { color: #D800FF; text-shadow: 0 0 10px rgba(216, 0, 255, 0.5); }
+        nav a:hover, nav a.active { color: var(--primary-color); text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
 
         .menu-toggle {
             display: none;
@@ -167,7 +174,7 @@
             right: -20%;
             width: 100%;
             height: 200%;
-            background: linear-gradient(135deg, #D800FF 0%, #A000CC 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
             animation: float 6s ease-in-out infinite;
         }
@@ -183,8 +190,8 @@
             height: 250px;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid #D800FF;
-            box-shadow: 0 0 40px rgba(216, 0, 255, 0.6);
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
             animation: floatImage 6s ease-in-out infinite;
             z-index: 10;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -194,7 +201,7 @@
 
         .profile-image:hover {
             transform: scale(1.08);
-            box-shadow: 0 0 60px rgba(216, 0, 255, 0.9);
+            box-shadow: 0 0 60px rgba(255, 0, 0, 0.9);
             border-width: 5px;
         }
 
@@ -240,7 +247,7 @@
         }
 
         .home-content h1 span {
-            background: linear-gradient(135deg, #D800FF, #A000CC);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -248,15 +255,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { filter: drop-shadow(0 0 10px rgba(216, 0, 255, 0.5)); }
-            50% { filter: drop-shadow(0 0 20px rgba(216, 0, 255, 0.8)); }
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)); }
         }
 
         .status-badge {
             display: inline-block;
-            background: rgba(216, 0, 255, 0.2);
-            border: 1px solid #D800FF;
-            color: #D800FF;
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
             padding: 0.5rem 1.2rem;
             border-radius: 50px;
             font-size: 0.9rem;
@@ -270,7 +277,7 @@
             display: inline-block;
             width: 8px;
             height: 8px;
-            background: #D800FF;
+            background: var(--primary-color);
             border-radius: 50%;
             margin-right: 0.5rem;
             animation: blink 2s infinite;
@@ -292,7 +299,7 @@
 
         .nav-button {
             padding: 0.8rem 1.5rem;
-            background: linear-gradient(135deg, #D800FF, #A000CC);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: #fff;
             border: none;
             border-radius: 10px;
@@ -300,7 +307,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 0 20px rgba(216, 0, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
             text-decoration: none;
             flex: 1;
             min-width: 120px;
@@ -310,7 +317,7 @@
 
         .nav-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(216, 0, 255, 0.8);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
         }
 
         .nav-button:active { transform: translateY(-1px); }
@@ -331,7 +338,7 @@
             animation: fadeInUp 0.8s ease-out;
             position: relative;
             font-weight: 800;
-            background: linear-gradient(135deg, #D800FF, #A000CC, #D800FF);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--primary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -358,19 +365,19 @@
         }
 
         .about-card {
-            background: rgba(26, 10, 46, 0.5);
+            background: var(--card-bg);
             backdrop-filter: blur(20px);
             padding: 2rem;
             border-radius: 20px;
-            border: 1px solid rgba(216, 0, 255, 0.3);
+            border: 1px solid rgba(255, 0, 0, 0.3);
             animation: slideInLeft 0.8s ease-out;
-            box-shadow: 0 8px 32px rgba(216, 0, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
             order: 2;
         }
 
         .about-card h3 {
             font-size: 1.5rem;
-            color: #D800FF;
+            color: var(--primary-color);
             margin-bottom: 1rem;
             font-weight: 700;
         }
@@ -393,9 +400,9 @@
             width: 250px;
             height: 250px;
             border-radius: 50%;
-            border: 4px solid #D800FF;
+            border: 4px solid var(--primary-color);
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(216, 0, 255, 0.6);
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.6);
             animation: floatImage 6s ease-in-out infinite;
             position: relative;
             cursor: default;
@@ -421,9 +428,9 @@
         }
 
         .project-box {
-            background: rgba(26, 10, 46, 0.6);
+            background: var(--card-bg);
             border-radius: 15px;
-            border: 1px solid rgba(216, 0, 255, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.2);
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             overflow: hidden;
             opacity: 0;
@@ -442,7 +449,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(216, 0, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.3), transparent);
             transition: left 0.5s;
             z-index: 2;
         }
@@ -450,10 +457,10 @@
         .project-box:hover::after { left: 100%; }
 
         .project-box:hover {
-            background: rgba(216, 0, 255, 0.15);
-            border-color: #D800FF;
+            background: rgba(255, 0, 0, 0.15);
+            border-color: var(--primary-color);
             transform: translateY(-10px) rotate(1deg);
-            box-shadow: 0 15px 40px rgba(216, 0, 255, 0.5);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
         }
 
         .project-media {
@@ -463,16 +470,17 @@
             display: block;
             overflow: hidden;
             flex-shrink: 0;
+            aspect-ratio: 16/9;
         }
 
         .project-media img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
             cursor: pointer;
             transition: transform 0.5s;
             background: transparent;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .project-title {
@@ -481,7 +489,7 @@
             text-align: center;
             border: none;
             font-weight: 600;
-            color: #D800FF;
+            color: var(--primary-color);
             font-size: 0.9rem;
             transition: all 0.3s ease;
             display: flex;
@@ -493,7 +501,7 @@
 
         .project-box:hover .project-title {
             color: #fff;
-            text-shadow: 0 0 10px rgba(216, 0, 255, 0.8);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
         }
 
         .pricing-container {
@@ -503,11 +511,11 @@
         }
 
         .pricing-card {
-            background: rgba(26, 10, 46, 0.6);
+            background: var(--card-bg);
             backdrop-filter: blur(20px);
             padding: 2rem;
             border-radius: 20px;
-            border: 1px solid rgba(216, 0, 255, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.2);
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             opacity: 0;
             transform: translateY(30px);
@@ -526,7 +534,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(216, 0, 255, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.15) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.5s;
             z-index: 0;
@@ -535,8 +543,8 @@
         .pricing-card:hover::before { opacity: 1; }
 
         .pricing-card:hover {
-            border-color: #D800FF;
-            box-shadow: 0 0 30px rgba(216, 0, 255, 0.6), inset 0 0 30px rgba(216, 0, 255, 0.1);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6), inset 0 0 30px rgba(255, 0, 0, 0.1);
             transform: translateY(-10px);
         }
 
@@ -548,7 +556,7 @@
 
         .pricing-title {
             font-size: 1.5rem;
-            color: #D800FF;
+            color: var(--primary-color);
             margin-bottom: 1rem;
             font-weight: 700;
         }
@@ -556,7 +564,7 @@
         .pricing-price {
             font-size: 2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #D800FF, #A000CC);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -580,7 +588,7 @@
         .pricing-features li {
             padding: 0.6rem 0;
             color: #aaa;
-            border-bottom: 1px solid rgba(216, 0, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.1);
             font-size: 0.9rem;
             display: flex;
             align-items: center;
@@ -588,8 +596,8 @@
         }
 
         .pricing-features li:last-child { border-bottom: none; }
-        .pricing-features li.included { color: #D800FF; }
-        .pricing-features li.included::before { content: '✓'; font-weight: 700; color: #D800FF; }
+        .pricing-features li.included { color: var(--primary-color); }
+        .pricing-features li.included::before { content: '✓'; font-weight: 700; color: var(--primary-color); }
         .pricing-features li.excluded { text-decoration: line-through; opacity: 0.6; }
         .pricing-features li.excluded::before { content: '✕'; color: #888; font-weight: 700; }
 
@@ -610,7 +618,7 @@
 
         .contact-content h3 {
             font-size: 1.5rem;
-            color: #D800FF;
+            color: var(--primary-color);
             margin-bottom: 1rem;
             font-weight: 700;
         }
@@ -647,7 +655,7 @@
             text-align: center;
             padding: 2rem 1rem;
             background: rgba(26, 10, 46, 0.8);
-            border-top: 1px solid rgba(216, 0, 255, 0.2);
+            border-top: 1px solid rgba(255, 0, 0, 0.2);
             margin-top: 3rem;
         }
 
@@ -665,7 +673,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             z-index: 2000;
             opacity: 0;
             animation: fadeIn 0.3s ease-out forwards;
@@ -700,41 +708,40 @@
             height: 100%;
             cursor: default;
             overflow: visible;
-            padding: 20px;
+            padding: 0;
         }
 
         .modal-video-wrapper {
             position: relative;
             display: inline-block;
-            max-width: 95%;
-            max-height: 95%;
+            width: 95%;
+            height: 95%;
+            max-width: 1400px;
         }
 
         .modal-video {
-            max-width: 100%;
-            max-height: 95vh;
-            border-radius: 10px;
-            object-fit: contain;
-            box-shadow: 0 0 80px rgba(216, 0, 255, 0.7);
-            border: 3px solid #D800FF;
-            user-select: none;
-            -webkit-user-select: none;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 0 80px rgba(255, 0, 0, 0.7);
+            background: #000;
         }
 
-        .image-counter {
+        .video-counter {
             position: fixed;
             top: 20px;
             left: 20px;
             background: rgba(26, 10, 46, 0.8);
             backdrop-filter: blur(10px);
-            color: #D800FF;
+            color: var(--primary-color);
             padding: 0.8rem 1.2rem;
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.9rem;
             z-index: 2001;
-            border: 1px solid rgba(216, 0, 255, 0.3);
-            box-shadow: 0 0 20px rgba(216, 0, 255, 0.3);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
             animation: fadeIn 0.5s ease-out;
         }
 
@@ -759,7 +766,7 @@
             right: 20px;
             width: 45px;
             height: 45px;
-            background: linear-gradient(135deg, #D800FF, #A000CC);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -770,7 +777,7 @@
             color: #fff;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             z-index: 2002;
-            box-shadow: 0 0 30px rgba(216, 0, 255, 0.8);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
             animation: floatButton 3s ease-in-out infinite;
             font-weight: bold;
         }
@@ -781,9 +788,9 @@
         }
 
         .close-button:hover {
-            background: linear-gradient(135deg, #A000CC, #D800FF);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
             transform: rotate(90deg) scale(1.15);
-            box-shadow: 0 0 60px rgba(216, 0, 255, 1);
+            box-shadow: 0 0 60px rgba(255, 0, 0, 1);
         }
 
         .close-button:active { transform: rotate(90deg) scale(1.05); }
@@ -803,7 +810,7 @@
         .nav-arrow {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #D800FF, #A000CC);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border: none;
             border-radius: 50%;
             color: white;
@@ -814,13 +821,13 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(216, 0, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
             pointer-events: all;
         }
 
         .nav-arrow:hover {
             transform: scale(1.15);
-            box-shadow: 0 0 40px rgba(216, 0, 255, 0.8);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
         }
 
         .nav-arrow:active { transform: scale(0.95); }
@@ -889,11 +896,11 @@
             .contact-content h3 { font-size: 2rem; }
             .contact-content p { font-size: 1rem; }
             .discord-button { padding: 1.2rem 2.5rem; font-size: 1rem; }
-            .modal-video-container { padding: 40px; }
+            .modal-video-wrapper { width: 90%; height: 85%; }
             .close-button { top: 40px; right: 40px; width: 50px; height: 50px; font-size: 1.8rem; }
             .nav-arrows { padding: 0 40px; }
             .nav-arrow { width: 60px; height: 60px; font-size: 1.8rem; }
-            .image-counter { top: 40px; left: 40px; padding: 1rem 1.5rem; font-size: 1rem; }
+            .video-counter { top: 40px; left: 40px; padding: 1rem 1.5rem; font-size: 1rem; }
         }
 
         @media (max-width: 1200px) and (min-width: 992px) { .projects-container { column-count: 3; } }
@@ -913,7 +920,7 @@
                 text-align: center;
                 transition: 0.3s;
                 padding: 5rem 0;
-                border-bottom: 1px solid rgba(216, 0, 255, 0.2);
+                border-bottom: 1px solid rgba(255, 0, 0, 0.2);
                 z-index: 999;
             }
 
@@ -922,6 +929,7 @@
             nav a { display: block; padding: 1rem 0; font-size: 1.2rem; }
             .home-img { display: none; }
             .projects-container { display: grid; grid-template-columns: 1fr; column-count: 1; }
+            .modal-video-wrapper { width: 100%; height: 60%; }
         }
 
         @media (max-width: 480px) {
@@ -942,11 +950,11 @@
             .contact-content h3 { font-size: 1.3rem; }
             .contact-content p { font-size: 0.9rem; }
             .discord-button { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
-            .modal-video-container { padding: 10px; }
             .close-button { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.3rem; }
             .nav-arrows { padding: 0 10px; }
             .nav-arrow { width: 45px; height: 45px; font-size: 1.3rem; }
-            .image-counter { top: 15px; left: 15px; padding: 0.6rem 1rem; font-size: 0.8rem; }
+            .video-counter { top: 15px; left: 15px; padding: 0.6rem 1rem; font-size: 0.8rem; }
+            .modal-video-wrapper { height: 40%; }
         }
     </style>
 </head>
@@ -974,7 +982,7 @@
     <section class="home" id="home">
         <div class="home-img"></div>
         <div class="profile-image">
-            <img src="https://drive.google.com/thumbnail?id=1fKdu6BkZqY14r0TSNUvrpXkBMkv3ONCY&sz=w1000" alt="Nova">
+            <img src="https://drive.google.com/thumbnail?id=1fKdu6BkZqY14r0TSNUvrpXkBMkv3ONCY&sz=w1000" alt="Nova" loading="lazy">
         </div>
         <div class="home-content">
             <h1>Hi, I'm <span>Nova</span></h1>
@@ -999,7 +1007,7 @@
             </div>
             <div class="about-image">
                 <div class="about-avatar">
-                    <img src="https://drive.google.com/thumbnail?id=1fKdu6BkZqY14r0TSNUvrpXkBMkv3ONCY&sz=w1000" alt="Nova">
+                    <img src="https://drive.google.com/thumbnail?id=1fKdu6BkZqY14r0TSNUvrpXkBMkv3ONCY&sz=w1000" alt="Nova" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1010,56 +1018,56 @@
         <div class="projects-container">
             <div class="project-box">
                 <div class="project-media">
-                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" onclick="openModal(this, 'video')">
+                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" loading="lazy" onclick="openModal(this, 'video')">
                 </div>
                 <div class="project-title">Programming Project 1</div>
             </div>
 
             <div class="project-box">
                 <div class="project-media">
-                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" onclick="openModal(this, 'video')">
+                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" loading="lazy" onclick="openModal(this, 'video')">
                 </div>
                 <div class="project-title">Programming Project 2</div>
             </div>
 
             <div class="project-box">
                 <div class="project-media">
-                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" onclick="openModal(this, 'video')">
+                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" loading="lazy" onclick="openModal(this, 'video')">
                 </div>
                 <div class="project-title">Programming Project 3</div>
             </div>
 
             <div class="project-box">
                 <div class="project-media">
-                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" onclick="openModal(this, 'video')">
+                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" loading="lazy" onclick="openModal(this, 'video')">
                 </div>
                 <div class="project-title">Programming Project 4</div>
             </div>
 
             <div class="project-box">
                 <div class="project-media">
-                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" onclick="openModal(this, 'video')">
+                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" loading="lazy" onclick="openModal(this, 'video')">
                 </div>
                 <div class="project-title">Programming Project 5</div>
             </div>
 
             <div class="project-box">
                 <div class="project-media">
-                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" onclick="openModal(this, 'video')">
+                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" loading="lazy" onclick="openModal(this, 'video')">
                 </div>
                 <div class="project-title">Programming Project 6</div>
             </div>
 
             <div class="project-box">
                 <div class="project-media">
-                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" onclick="openModal(this, 'video')">
+                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" loading="lazy" onclick="openModal(this, 'video')">
                 </div>
                 <div class="project-title">Programming Project 7</div>
             </div>
 
             <div class="project-box">
                 <div class="project-media">
-                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" onclick="openModal(this, 'video')">
+                    <img src="https://img.youtube.com/vi/x31ybhQ4Dl8/maxresdefault.jpg" alt="Project Video" class="project-img" loading="lazy" onclick="openModal(this, 'video')">
                 </div>
                 <div class="project-title">Programming Project 8</div>
             </div>
@@ -1069,7 +1077,7 @@
     <section id="pricing">
         <h2>Pricing <span>Plans</span></h2>
         <div class="pricing-container">
-            <div class="pricing-card" data-tilt>
+            <div class="pricing-card">
                 <div class="pricing-header">
                     <h3 class="pricing-title">Basic Development</h3>
                     <div class="pricing-price">$10<span class="pricing-currency"> / R$ 4k</span></div>
@@ -1083,7 +1091,7 @@
                 </ul>
             </div>
 
-            <div class="pricing-card" data-tilt>
+            <div class="pricing-card">
                 <div class="pricing-header">
                     <h3 class="pricing-title">Full Stack</h3>
                     <div class="pricing-price">$15<span class="pricing-currency"> / R$ 6.5k</span></div>
@@ -1098,7 +1106,7 @@
                 </ul>
             </div>
 
-            <div class="pricing-card" data-tilt>
+            <div class="pricing-card">
                 <div class="pricing-header">
                     <h3 class="pricing-title">Deployment Only</h3>
                     <div class="pricing-price">$5<span class="pricing-currency"> / R$ 2.1k</span></div>
@@ -1118,7 +1126,7 @@
             <div class="contact-content">
                 <h3>Let's Create Something Amazing</h3>
                 <p>I'm always excited to work on new projects and collaborate with talented individuals. Whether you have a specific project in mind or just want to chat about programming, reach out to me on Discord.</p>
-                <a href="https://discord.com/users/1186388052877254656" target="_blank" class="discord-button">Contact me on Discord</a>
+                <a href="https://discord.com/users/938914785192460399" target="_blank" class="discord-button">Contact me on Discord</a>
             </div>
         </div>
     </section>
@@ -1126,14 +1134,14 @@
     <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
         <div class="modal-content" id="modalContent">
             <button class="close-button" onclick="closeModal()">✕</button>
-            <div class="image-counter" id="imageCounter">1/8</div>
+            <div class="video-counter" id="videoCounter">1/8</div>
             <div class="nav-arrows">
                 <button class="nav-arrow" id="prevArrow" onclick="event.stopPropagation(); navigateVideo(-1)">‹</button>
                 <button class="nav-arrow" id="nextArrow" onclick="event.stopPropagation(); navigateVideo(1)">›</button>
             </div>
             <div class="modal-video-container" id="modalVideoContainer">
                 <div class="modal-video-wrapper" id="modalVideoWrapper">
-                    <iframe id="modalVideo" class="modal-video" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="modalVideo" class="modal-video" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -1146,46 +1154,27 @@
 
     <script>
         const scrollProgress = document.querySelector('.scroll-progress');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalContent = document.getElementById('modalContent');
+        const modalVideo = document.getElementById('modalVideo');
+        const prevArrow = document.getElementById('prevArrow');
+        const nextArrow = document.getElementById('nextArrow');
+        const videoCounter = document.getElementById('videoCounter');
+
+        const videoIds = Array(8).fill('x31ybhQ4Dl8');
+        let currentVideoIndex = 0;
+
+        // Scroll progress
         window.addEventListener('scroll', () => {
             const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrolled = (window.scrollY / windowHeight) * 100;
             scrollProgress.style.width = scrolled + '%';
         });
 
-        const modalOverlay = document.getElementById('modalOverlay');
-        const modalContent = document.getElementById('modalContent');
-        const modalVideo = document.getElementById('modalVideo');
-        const modalVideoContainer = document.getElementById('modalVideoContainer');
-        const modalVideoWrapper = document.getElementById('modalVideoWrapper');
-        const prevArrow = document.getElementById('prevArrow');
-        const nextArrow = document.getElementById('nextArrow');
-        const imageCounter = document.getElementById('imageCounter');
-
-        const videoIds = [
-            'x31ybhQ4Dl8',
-            'x31ybhQ4Dl8',
-            'x31ybhQ4Dl8',
-            'x31ybhQ4Dl8',
-            'x31ybhQ4Dl8',
-            'x31ybhQ4Dl8',
-            'x31ybhQ4Dl8',
-            'x31ybhQ4Dl8'
-        ];
-
-        let currentVideoIndex = 0;
-
-        function adjustVideoRatios() {
-            const projectMedias = document.querySelectorAll('.project-media');
-            
-            projectMedias.forEach(media => {
-                media.style.aspectRatio = '16 / 9';
-            });
-        }
-
+        // Video modal functions
         function openModal(element, type) {
             const allThumbnails = Array.from(document.querySelectorAll('.project-img'));
             currentVideoIndex = allThumbnails.indexOf(element);
-            
             loadVideo(currentVideoIndex);
             modalOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1194,16 +1183,14 @@
         }
 
         function loadVideo(index) {
-            const videoUrl = `https://www.youtube.com/embed/${videoIds[index]}?autoplay=1`;
+            const videoUrl = `https://www.youtube.com/embed/${videoIds[index]}?autoplay=1&rel=0&modestbranding=1`;
             modalVideo.src = videoUrl;
         }
 
         function navigateVideo(direction) {
             currentVideoIndex += direction;
-            
             if (currentVideoIndex < 0) currentVideoIndex = 0;
             if (currentVideoIndex >= videoIds.length) currentVideoIndex = videoIds.length - 1;
-            
             loadVideo(currentVideoIndex);
             updateNavigationButtons();
             updateVideoCounter();
@@ -1215,7 +1202,7 @@
         }
 
         function updateVideoCounter() {
-            imageCounter.textContent = `${currentVideoIndex + 1}/${videoIds.length}`;
+            videoCounter.textContent = `${currentVideoIndex + 1}/${videoIds.length}`;
         }
 
         function handleOverlayClick(event) {
@@ -1234,27 +1221,12 @@
             }, 300);
         }
 
+        // Mobile menu
         function toggleMenu() {
             document.getElementById('navMenu').classList.toggle('active');
         }
 
-        document.addEventListener('DOMContentLoaded', adjustVideoRatios);
-        window.addEventListener('load', adjustVideoRatios);
-
-        document.addEventListener('keydown', (e) => {
-            if (modalOverlay.classList.contains('active')) {
-                if (e.key === 'Escape') closeModal();
-                if (e.key === 'ArrowLeft') navigateVideo(-1);
-                if (e.key === 'ArrowRight') navigateVideo(1);
-            }
-        });
-
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navMenu').classList.remove('active');
-            });
-        });
-
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1268,11 +1240,12 @@
             });
         });
 
+        // Active navigation
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
-
             let current = '';
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 if (window.scrollY >= sectionTop - 100) {
@@ -1288,9 +1261,8 @@
             });
         });
 
-        const observerOptions = { threshold: 0.1 };
-
-        const revealOnScroll = (entries, observer) => {
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
                     setTimeout(() => {
@@ -1300,22 +1272,28 @@
                     observer.unobserve(entry.target);
                 }
             });
-        };
+        }, { threshold: 0.1 });
 
-        const observer = new IntersectionObserver(revealOnScroll, observerOptions);
-
+        // Observe elements
         document.querySelectorAll('.project-box, .pricing-card').forEach(el => {
             observer.observe(el);
         });
 
-        if (document.querySelectorAll('[data-tilt]').length > 0) {
-            VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
-                max: 15,
-                speed: 400,
-                glare: true,
-                "max-glare": 0.3
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modalOverlay.classList.contains('active')) {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') navigateVideo(-1);
+                if (e.key === 'ArrowRight') navigateVideo(1);
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
             });
-        }
+        });
     </script>
 </body>
 </html>
