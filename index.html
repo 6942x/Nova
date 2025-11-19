@@ -38,8 +38,32 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
 
         .scroll-progress {
@@ -51,6 +75,7 @@
             width: 0;
             z-index: 2000;
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            transition: width 0.1s;
         }
 
         header {
@@ -63,6 +88,13 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 0, 0, 0.3);
             animation: slideDown 0.6s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.7rem 5%;
+            background: rgba(15, 5, 29, 0.98);
+            box-shadow: 0 5px 30px rgba(255, 0, 0, 0.2);
         }
 
         @keyframes slideDown {
@@ -86,6 +118,13 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: glow 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
         }
 
         @keyframes glow {
@@ -106,6 +145,7 @@
             font-size: 1rem;
             position: relative;
             font-weight: 500;
+            padding: 0.5rem 0;
         }
 
         nav a::after {
@@ -127,6 +167,12 @@
             flex-direction: column;
             cursor: pointer;
             z-index: 1001;
+            transition: all 0.3s;
+        }
+
+        .menu-toggle:hover span {
+            background: #FF0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
 
         .menu-toggle span {
@@ -135,7 +181,12 @@
             background: #fff;
             margin: 3px 0;
             transition: 0.3s;
+            border-radius: 2px;
         }
+
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
         .home {
             min-height: 100vh;
@@ -189,11 +240,11 @@
             z-index: 10;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             margin: 0 auto;
-            cursor: default;
+            cursor: pointer;
         }
 
         .profile-image:hover {
-            transform: scale(1.08);
+            transform: scale(1.08) rotate(5deg);
             box-shadow: 0 0 60px rgba(255, 0, 0, 0.9);
             border-width: 5px;
         }
@@ -203,7 +254,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s;
-            cursor: default;
+            cursor: pointer;
         }
 
         .profile-image:hover img { transform: scale(1.1); }
@@ -263,6 +314,14 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
             animation: fadeIn 1.5s ease-out;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .status-badge:hover {
+            background: rgba(255, 0, 0, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
         }
 
         .status-badge::before {
@@ -277,8 +336,8 @@
         }
 
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
         }
 
         .home-buttons {
@@ -306,14 +365,29 @@
             min-width: 120px;
             max-width: 160px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-button:hover::before { left: 100%; }
+
         .nav-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.05);
             box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
         }
 
-        .nav-button:active { transform: translateY(-1px); }
+        .nav-button:active { transform: translateY(-1px) scale(1.02); }
 
         section {
             min-height: 100vh;
@@ -336,7 +410,8 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             background-size: 200% 100%;
-            animation: gradientFlow 3s ease-in-out infinite;
+            animation: gradientFlow 3s ease-in-out infinite, fadeInUp 0.8s ease-out;
+            cursor: default;
         }
 
         @keyframes gradientFlow {
@@ -366,6 +441,30 @@
             animation: slideInLeft 0.8s ease-out;
             box-shadow: 0 8px 32px rgba(255, 0, 0, 0.1);
             order: 2;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 0;
+        }
+
+        .about-card:hover::before { opacity: 1; }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.3);
+            border-color: #FF0000;
         }
 
         .about-card h3 {
@@ -373,6 +472,8 @@
             color: #FF0000;
             margin-bottom: 1rem;
             font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
 
         .about-card p {
@@ -380,6 +481,8 @@
             font-size: 0.95rem;
             line-height: 1.8;
             margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .about-image {
@@ -398,15 +501,24 @@
             box-shadow: 0 0 50px rgba(255, 0, 0, 0.6);
             animation: floatImage 6s ease-in-out infinite;
             position: relative;
-            cursor: default;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .about-avatar:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 0 70px rgba(255, 0, 0, 0.8);
         }
 
         .about-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            cursor: default;
+            cursor: pointer;
+            transition: transform 0.4s;
         }
+
+        .about-avatar:hover img { transform: scale(1.1); }
 
         @keyframes slideInRight {
             from { opacity: 0; transform: translateX(50px); }
@@ -433,6 +545,7 @@
             flex-direction: column;
             break-inside: avoid;
             page-break-inside: avoid;
+            cursor: pointer;
         }
 
         .project-box::after {
@@ -452,7 +565,7 @@
         .project-box:hover {
             background: rgba(255, 0, 0, 0.15);
             border-color: #FF0000;
-            transform: translateY(-10px) rotate(1deg);
+            transform: translateY(-10px) rotate(1deg) scale(1.02);
             box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
         }
 
@@ -475,6 +588,10 @@
             object-fit: contain;
         }
 
+        .project-box:hover .project-media img {
+            transform: scale(1.05);
+        }
+
         .project-title {
             padding: 1rem;
             background: transparent;
@@ -489,6 +606,8 @@
             justify-content: center;
             min-height: 60px;
             flex-shrink: 0;
+            position: relative;
+            z-index: 1;
         }
 
         .project-box:hover .project-title {
@@ -506,6 +625,7 @@
             text-align: center;
             color: #FF0000;
             font-weight: 700;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .pricing-container {
@@ -529,6 +649,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            cursor: pointer;
         }
 
         .pricing-card::before {
@@ -549,7 +670,7 @@
         .pricing-card:hover {
             border-color: #FF0000;
             box-shadow: 0 0 30px rgba(255, 0, 0, 0.6), inset 0 0 30px rgba(255, 0, 0, 0.1);
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
         }
 
         .pricing-header {
@@ -563,6 +684,12 @@
             color: #FF0000;
             margin-bottom: 1rem;
             font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover .pricing-title {
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
 
         .pricing-price {
@@ -573,6 +700,11 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover .pricing-price {
+            transform: scale(1.05);
         }
 
         .pricing-currency {
@@ -597,6 +729,11 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover .pricing-features li {
+            transform: translateX(5px);
         }
 
         .pricing-features li:last-child { border-bottom: none; }
@@ -648,10 +785,25 @@
             cursor: pointer;
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
+        .discord-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .discord-button:hover::before { left: 100%; }
+
         .discord-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.05);
             box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
         }
 
@@ -661,11 +813,26 @@
             background: rgba(26, 10, 10, 0.8);
             border-top: 1px solid rgba(255, 0, 0, 0.2);
             margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+            opacity: 0.5;
         }
 
         footer p {
             color: #aaa;
             font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
         }
 
         footer p:first-child { margin-bottom: 0.5rem; }
@@ -750,6 +917,12 @@
             border: 1px solid rgba(255, 0, 0, 0.3);
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
             animation: fadeIn 0.5s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .image-counter:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
         }
 
         @keyframes scaleIn {
@@ -842,6 +1015,11 @@
         .nav-arrow.disabled {
             opacity: 0.3;
             cursor: not-allowed;
+        }
+
+        .nav-arrow.disabled:hover {
+            transform: scale(1);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
         }
 
         @media (min-width: 768px) {
@@ -965,11 +1143,12 @@
     </style>
 </head>
 <body>
+    <div class="floating-particles" id="particles"></div>
     <div class="scroll-progress"></div>
 
     <header>
         <nav>
-            <div class="logo">Nova</div>
+            <div class="logo" onclick="scrollToTop()">Nova</div>
             <div class="menu-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -992,7 +1171,7 @@
         </div>
         <div class="home-content">
             <h1>Hi, I'm <span>Nova</span></h1>
-            <div class="status-badge">🟢 Open For Work</div>
+            <div class="status-badge">Open For Work</div>
             <div class="home-buttons">
                 <a href="#about" class="nav-button">About</a>
                 <a href="#pastwork" class="nav-button">Projects</a>
@@ -1193,16 +1372,46 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Nova - Programmer | Software Developer</p>
+        <p>&copy; 2025 Nova - Programmer | Roblox Developer</p>
         <p>Based in GMT-3 Timezone | Available for Freelance Projects</p>
     </footer>
 
     <script>
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 100 + 50;
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${left}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
         const scrollProgress = document.querySelector('.scroll-progress');
         window.addEventListener('scroll', () => {
             const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrolled = (window.scrollY / windowHeight) * 100;
             scrollProgress.style.width = scrolled + '%';
+            
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
 
         const modalOverlay = document.getElementById('modalOverlay');
@@ -1292,10 +1501,25 @@
         }
 
         function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
         }
 
-        document.addEventListener('DOMContentLoaded', adjustVideoRatios);
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            adjustVideoRatios();
+            createParticles();
+        });
+
         window.addEventListener('load', adjustVideoRatios);
 
         document.addEventListener('keydown', (e) => {
@@ -1309,6 +1533,7 @@
         document.querySelectorAll('#navMenu a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navMenu').classList.remove('active');
+                document.querySelector('.menu-toggle').classList.remove('active');
             });
         });
 
@@ -1373,6 +1598,20 @@
                 "max-glare": 0.3
             });
         }
+
+        document.querySelectorAll('.nav-button, .discord-button, .status-badge, .profile-image, .about-avatar').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                element.style.transform = element.style.transform || '';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    if (!element.matches(':hover')) {
+                        element.style.transform = '';
+                    }
+                }, 100);
+            });
+        });
     </script>
 </body>
 </html>
